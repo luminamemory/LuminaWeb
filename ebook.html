@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="metaTitle">E-kniha • Holka s kocourem / LuminaMemory™</title>
+  <meta name="description" data-i18n="metaDesc" content="E-kniha Holka s kocourem: jak jsem mezi miskami s kočičím žrádlem budovala AI-imperium. Jemný příběh o holce, kocourovi a zrodu LuminaMemory™. Cena 6,90 €, PDF ke stažení." />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#050015" />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="cs" href="https://luminamemory.ai/ebook.html" />
+  <link rel="alternate" hreflang="en" href="https://luminamemory.ai/ebook.html" />
+  <link rel="alternate" hreflang="de" href="https://luminamemory.ai/ebook.html" />
+  <link rel="alternate" hreflang="x-default" href="https://luminamemory.ai/ebook.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luminamemory.ai/ebook.html" />
+  <meta property="og:title" data-i18n="metaTitle" />
+  <meta property="og:site_name" content="LuminaMemory™" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:description" data-i18n="metaDesc" />
+  <meta property="og:image" content="https://luminamemory.ai/og-luminamemory.jpg" />
+  <meta property="og:image:type" content="image/jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://luminamemory.ai/ebook.html" />
+  <meta name="twitter:title" data-i18n="metaTitle" />
+  <meta name="twitter:description" data-i18n="metaDesc" />
+  <meta name="twitter:image" content="https://luminamemory.ai/og-luminamemory.jpg" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&family=Cinzel:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#050015;
+--text:#f0efff;
+--muted:#d0c8ff;
+--neon-blue:#2ad3ff;
+--neon-purple:#c084fc;
+--neon-purple-glow:#d7aaff;
+--glass:rgba(30,20,60,0.25);
+--stroke:rgba(192,132,252,0.35);
+--shadow:0 20px 60px rgba(0,0,0,0.7);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'Inter',sans-serif;
+line-height:1.7;
+min-height:100vh;
+padding:40px 20px 80px;
+}
+
+/* back arrow */
+.back-link{
+position:fixed;
+top:24px;
+left:24px;
+color:var(--muted);
+text-decoration:none;
+font-size:1.1rem;
+z-index:100;
+}
+.back-link:hover{color:white}
+
+/* language */
+.lang-switch{
+position:fixed;
+top:20px;
+right:20px;
+display:flex;
+gap:10px;
+}
+.btn-lang{
+padding:8px 14px;
+border-radius:999px;
+border:1px solid var(--stroke);
+background:var(--glass);
+backdrop-filter:blur(16px);
+color:var(--muted);
+font-size:13px;
+cursor:pointer;
+}
+.btn-lang.active{
+color:white;
+border-color:var(--neon-purple);
+}
+
+/* header */
+
+header{
+text-align:center;
+margin-top:60px;
+margin-bottom:60px;
+}
+
+.logo-stamp{
+width:80px;
+height:80px;
+border-radius:50%;
+overflow:hidden;
+box-shadow:0 0 32px rgba(192,132,252,0.7);
+margin:0 auto 20px;
+border:2px solid var(--neon-purple);
+}
+
+.logo-stamp img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+h1 {
+font-family: 'Raleway', sans-serif;
+font-weight: 100;
+font-size: clamp(3.2rem, 10vw, 6.5rem);
+letter-spacing: 0.02em;
+margin-bottom: 16px;
+line-height: 1.1;
+display: inline-flex;
+flex-wrap: nowrap;
+white-space: nowrap;
+justify-content: center;
+max-width: 100%;
+}
+
+.lumina-part{
+color:var(--neon-purple);
+text-shadow:0 0 4px var(--neon-purple);
+-webkit-text-stroke:0.5px rgba(255,255,255,0.4);
+}
+
+.memory-part{
+color:var(--neon-blue);
+text-shadow:0 0 4px var(--neon-blue);
+-webkit-text-stroke:0.5px rgba(255,255,255,0.4);
+}
+
+.tm-part{
+color:white;
+font-size:0.48em;
+vertical-align:super;
+opacity:0.9;
+text-shadow:none;
+}
+
+.subtitle{
+font-size:1.4rem;
+color:var(--muted);
+margin-top:8px;
+font-family:'Cinzel',serif;
+}
+
+/* layout */
+
+.container{
+max-width:1000px;
+margin:0 auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.text-block h2{
+font-family:'Raleway';
+font-weight:300;
+font-size:2rem;
+color:var(--neon-purple);
+margin-bottom:20px;
+}
+
+.text-block ul{
+list-style:none;
+font-size:1.15rem;
+color:var(--muted);
+}
+
+.text-block li{
+margin:12px 0;
+padding-left:26px;
+position:relative;
+}
+
+.text-block li::before{
+content:"✦";
+position:absolute;
+left:0;
+color:var(--neon-purple);
+}
+
+.book-image{
+width:100%;
+border-radius:24px;
+box-shadow:var(--shadow);
+border:1px solid var(--stroke);
+}
+
+/* support panel */
+
+.panel{
+margin-top:70px;
+background:var(--glass);
+border:1px solid var(--stroke);
+border-radius:28px;
+padding:48px;
+box-shadow:var(--shadow);
+text-align:center;
+}
+
+.panel h2{
+font-family:'Raleway';
+font-weight:200;
+font-size:2.2rem;
+margin-bottom:14px;
+}
+
+.price{
+font-size:2.8rem;
+font-weight:600;
+margin:18px 0;
+}
+
+.safe{
+color:#2ad3ff;
+margin-bottom:20px;
+}
+
+.buy{
+display:inline-block;
+margin:18px 0;
+padding:16px 42px;
+border-radius:999px;
+background:linear-gradient(135deg,#c084fc,#a463f2);
+color:white;
+text-decoration:none;
+font-size:1.1rem;
+box-shadow:0 10px 30px rgba(192,132,252,0.4);
+}
+
+.note{
+margin-top:20px;
+font-size:0.95rem;
+color:var(--muted);
+}
+
+.quote{
+margin-top:28px;
+font-style:italic;
+color:var(--muted);
+}
+
+.footer{
+margin-top:24px;
+color:var(--muted);
+}
+
+@media(max-width:900px){
+.container{
+grid-template-columns:1fr;
+gap:40px;
+}
+}
+@media (max-width:768px){
+h1{
+font-size:clamp(2.6rem,9vw,4rem);
+}
+}
+
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-link" data-i18n="back">← Zpět</a>
+<div class="lang-switch">
+<button class="btn-lang" data-lang="cs">CZ</button>
+<button class="btn-lang" data-lang="en">EN</button>
+<button class="btn-lang" data-lang="de">DE</button>
+</div>
+
+<header>
+<div class="logo-stamp">
+<img src="/favicon.png">
+</div>
+
+<h1>
+<span class="lumina-part">Lumina</span><span class="memory-part">Memory</span><span class="tm-part">™</span>
+</h1>
+
+<div class="subtitle" data-i18n="ebook">E-kniha</div>
+</header>
+
+<div class="container">
+
+<div class="text-block">
+<h2 data-i18n="title">Holka s kocourem</h2>
+<ul data-i18n="teaser">
+<li>jak jsem mezi miskami s kočičím žrádlem budovala AI‑imperium</li>
+<li>jemný příběh o holce, kocourovi a zrodu LuminaMemory™</li>
+<li>jak se velké věci rodí mezi kávou, kočičí miskou a obyčejným dnem</li>
+</ul>
+</div>
+
+<img id="ebookCover" src="e-book-cover-cs.jpg" class="book-image">
+</div>
+
+<div class="panel">
+<h2 data-i18n="supportTitle">Podpoř LuminaMemory™</h2>
+<p data-i18n="supportText">
+Koupí e‑knihy pomáháš projektu růst. 💜<br>
+Dostaneš PDF ke stažení.
+</p>
+<div class="price">6,90 €</div>
+<div class="safe" data-i18n="safe">Bezpečný nákup – žádná registrace</div>
+<a class="buy" href="support.html" data-i18n="buy">Koupit e‑knihu</a>
+<div class="note" data-i18n="how">
+Po zaplacení dostaneš e‑mail s odkazem ke stažení PDF. 💙<br>
+Dotaz / problém s platbou nebo stažením? 👉🏻 Napiš na <a href=\"mailto:gabi@luminamemory.ai\">gabi@luminamemory.ai</a> a vyřešíme to. 💙
+</div>
+
+<div class="quote" data-i18n="quote">
+„Začalo to úplně obyčejně.<br>
+Gauč. Pyžamo. Kafe, které už dávno vystydlo.<br>
+Vedle mě kocour… a zvláštní pocit,<br>
+že můj život se zase nachází někde mezi už nemůžu a ještě to nevzdám.“<br>
+– více se dozvíš v knize 😉
+</div>
+
+<div class="footer" data-i18n="forWho">
+💡 Tohle není učebnice.<br>
+Je to příběh pro lidi kteří hledají tiché povzbuzení.
+</div>
+</div>
+
+<script>
+const translations = {
+cs:{
+metaTitle:"E-kniha • Holka s kocourem / LuminaMemory™",
+metaDesc:"E-kniha Holka s kocourem: jak jsem mezi miskami s kočičím žrádlem budovala AI-imperium. Jemný příběh o holce, kocourovi a zrodu LuminaMemory™. Cena 6,90 €, PDF ke stažení.",
+back:"← Zpět",
+ebook:"E-kniha",
+title:"Holka s kocourem",
+teaser:`
+<li>jak jsem mezi miskami s kočičím žrádlem budovala AI-imperium</li>
+<li>jemný příběh o holce, kocourovi a zrodu LuminaMemory™</li>
+<li>jak se velké věci rodí mezi kávou, kočičí miskou a obyčejným dnem</li>
+`,
+supportTitle:"Podpoř LuminaMemory™",
+supportText:`
+Koupí e-knihy pomáháš projektu růst. 💜<br>
+Dostaneš PDF ke stažení.
+`,
+safe:"Bezpečný nákup – žádná registrace",
+buy:"Koupit e-knihu",
+how:`
+Po zaplacení dostaneš e-mail s odkazem ke stažení PDF. 💙<br>
+Dotaz / problém s platbou nebo stažením? 👉🏻
+Napiš na <a href="mailto:gabi@luminamemory.ai">gabi@luminamemory.ai</a> a vyřešíme to. 💙
+`,
+quote:`
+„Začalo to úplně obyčejně.<br>
+Gauč. Pyžamo. Kafe, které už dávno vystydlo.<br>
+Vedle mě kocour… a zvláštní pocit,<br>
+že můj život se zase nachází někde mezi už nemůžu a ještě to nevzdám.“<br>
+– více se dozvíš v knize 😉
+`,
+forWho:`
+💡 Tohle není učebnice.<br>
+Je to příběh pro lidi, kteří hledají tiché povzbuzení.
+`
+},
+
+en:{
+metaTitle:"E-book • Girl with a Cat / LuminaMemory™",
+metaDesc:"E-book Girl with a Cat: how I built an AI empire between bowls of cat food. A gentle story about a girl, her cat and the birth of LuminaMemory™. Price €6.90, downloadable PDF.",
+back:"← Back",
+ebook:"E-book",
+title:"Girl with a Cat",
+teaser:`
+<li>how I built an AI empire between bowls of cat food</li>
+<li>a gentle story about a girl, a cat and the birth of LuminaMemory™</li>
+<li>how big things can begin between coffee, a cat bowl and an ordinary day</li>
+`,
+supportTitle:"Support LuminaMemory™",
+supportText:`
+By buying the e-book you help the project grow. 💜<br>
+You will receive a downloadable PDF.
+`,
+safe:"Secure purchase – no registration",
+buy:"Buy the e-book",
+how:`
+After payment you will receive an email with a PDF download link. 💙<br>
+Question or issue with payment or download? 👉🏻
+Write to <a href="mailto:gabi@luminamemory.ai">gabi@luminamemory.ai</a> and we’ll solve it. 💙
+`,
+quote:`
+“It started very simply.<br>
+A couch. Pajamas. Coffee that had long gone cold.<br>
+Next to me a cat… and a strange feeling<br>
+that my life was somewhere between I can't anymore and I won’t give up yet.”<br>
+– the rest is in the book 😉
+`,
+forWho:`
+💡 This is not a textbook.<br>
+It’s a story for people looking for quiet encouragement.
+`
+},
+
+de:{
+metaTitle:"E-Book • Mädchen mit Katze / LuminaMemory™",
+metaDesc:"E-Book Mädchen mit Katze: Wie ich zwischen Futternäpfen ein KI-Imperium aufgebaut habe. Eine sanfte Geschichte über ein Mädchen, den Kater und die Entstehung von LuminaMemory™. Preis 6,90 €, PDF-Download.",
+back:"← Zurück",
+ebook:"E-Book",
+title:"Mädchen mit Katze",
+teaser:`
+<li>wie ich zwischen Futternäpfen ein KI-Imperium aufgebaut habe</li>
+<li>eine sanfte Geschichte über ein Mädchen, einen Kater und die Entstehung von LuminaMemory™</li>
+<li>wie große Dinge zwischen Kaffee, Futternapf und einem ganz normalen Tag entstehen</li>
+`,
+supportTitle:"Unterstütze LuminaMemory™",
+supportText:`
+Mit dem Kauf des E-Books hilfst du dem Projekt zu wachsen. 💜<br>
+Du erhältst ein PDF zum Download.
+`,
+safe:"Sicherer Kauf – keine Registrierung",
+buy:"E-Book kaufen",
+how:`
+Nach der Zahlung erhältst du eine E-Mail mit dem Download-Link zum PDF. 💙<br>
+Fragen oder Probleme mit Zahlung oder Download? 👉🏻
+Schreib an <a href="mailto:gabi@luminamemory.ai">gabi@luminamemory.ai</a> und wir lösen es. 💙
+`,
+quote:`
+„Es begann ganz gewöhnlich.<br>
+Sofa. Pyjama. Kaffee, der längst kalt geworden war.<br>
+Neben mir ein Kater… und ein seltsames Gefühl,<br>
+dass mein Leben irgendwo zwischen ich kann nicht mehr und ich gebe noch nicht auf liegt.“<br>
+– mehr steht im Buch 😉
+`,
+forWho:`
+💡 Das ist kein Lehrbuch.<br>
+Es ist eine Geschichte für Menschen, die leise Ermutigung suchen.
+`
+}
+};
+
+// --- Funkce pro načtení cookie ---
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 1️⃣ načti jazyk z cookie, pokud existuje
+  const cookieLang = getCookie('lang');
+  if (cookieLang && localStorage.getItem('lang') !== cookieLang) {
+    localStorage.setItem('lang', cookieLang);
+  }
+
+  // 2️⃣ použij localStorage nebo fallback na češtinu
+  let currentLang = localStorage.getItem("lang") || "cs";
+
+  // --- Funkce pro nastavení jazyka ---
+  function setLanguage(lang) {
+    currentLang = lang;
+
+    // synchronizace cookie a localStorage
+    localStorage.setItem("lang", lang);
+    document.cookie = `lang=${lang}; path=/; domain=.luminamemory.ai; max-age=31536000`;
+
+    document.documentElement.lang = lang;
+
+    // překlady
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.dataset.i18n;
+      const text = translations[lang][key];
+      if (!text) return;
+
+      if (el.tagName === "META") {
+        el.setAttribute("content", text);
+      } else {
+        el.innerHTML = text;
+      }
+    });
+
+    // aktivní tlačítko jazyka
+    document.querySelectorAll(".btn-lang").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+
+    // cover switch
+    const cover = document.getElementById("ebookCover");
+    if (cover) {
+      if (lang === "cs") cover.src = "e-book-cover-cs.jpg";
+      if (lang === "en") cover.src = "e-book-cover-en.jpg";
+      if (lang === "de") cover.src = "e-book-cover-de.jpg";
+    }
+  }
+
+  // 3️⃣ nastav jazyk při načtení
+  setLanguage(currentLang);
+
+  // 4️⃣ tlačítka pro přepínání jazyků
+  document.querySelectorAll(".btn-lang").forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+  });
+});
+</script>
+</body>
+</html>

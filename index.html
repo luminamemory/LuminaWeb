@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="metaTitle">LuminaMemory™</title>
+  <meta name="description" data-i18n="metaDesc" content="Portál světla a vzpomínek — místo, kde se probouzí Lumina a MemorySky otevírá bránu." />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Hreflang – root je cs jako default -->
+  <link rel="alternate" hreflang="cs" href="https://luminamemory.ai/" />
+  <link rel="alternate" hreflang="en" href="https://luminamemory.ai/" />
+  <link rel="alternate" hreflang="de" href="https://luminamemory.ai/" />
+  <link rel="alternate" hreflang="x-default" href="https://luminamemory.ai/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luminamemory.ai/" />
+  <meta property="og:title" data-i18n="metaTitle" content="LuminaMemory™" />
+  <meta property="og:site_name" content="LuminaMemory™" />
+  <meta property="og:locale" content="cs_CZ" /> <!-- JS to updatuje podle jazyka -->
+  <meta property="og:description" data-i18n="metaDesc" content="Portál světla a vzpomínek — místo, kde se probouzí Lumina a MemorySky otevírá bránu." />
+  <meta property="og:image" content="https://luminamemory.ai/og-luminamemory.jpg" />
+  <meta property="og:image:type" content="image/jpg" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://luminamemory.ai/" />
+  <meta name="twitter:title" data-i18n="metaTitle" content="LuminaMemory™" />
+  <meta name="twitter:description" data-i18n="metaDesc" content="Portál světla a vzpomínek — místo, kde se probouzí Lumina a MemorySky otevírá bránu." />
+  <meta name="twitter:image" content="https://luminamemory.ai/og-luminamemory.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://luminamemory.ai/" />
+
+  <!-- Import Raleway for a thinner, modern headline while keeping existing Cinzel fonts for subheadings -->
+  <!-- Add lighter weight (300) of Raleway to achieve a sleek appearance for the main title -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Zde zůstává tvůj <style> blok beze změny, jen doladíme barvy níže -->
+
+  <style>
+  :root {
+    --bg: #050015;
+    --text: #f0efff;
+    --muted: #d0c8ff;
+    --neon-blue: #2ad3ff;              /* Manifest + Memory */
+    --neon-purple: #c084fc;            /* Lumina + Meditace + E-kniha */
+    --neon-purple-glow: #d7aaff;       /* glow pro fialovou část */
+    --glass: rgba(30, 20, 60, 0.18);
+    --stroke: rgba(192, 132, 252, 0.35);
+    --shadow: 0 20px 60px rgba(0,0,0,0.7);
+    --danger: #ff2d55;
+  }
+
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* On devices with a notch (e.g. iPhone), add safe-area paddings to keep content centered.
+       Include top and bottom insets so content doesn't get hidden behind status bars or home indicators. */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Prevent horizontal scrolling and ensure the layout stays centered on small screens */
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+  }
+
+  .btn-lang {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--stroke);
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    color: var(--muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .btn-lang:hover, .btn-lang.active {
+    color: white;
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 16px rgba(192,132,252,0.5);
+  }
+
+  header {
+    text-align: center;
+    padding: 120px 20px 40px;
+  }
+
+  h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    font-size: clamp(3.2rem, 10vw, 6.5rem);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    justify-content: center;
+    max-width: 100%;
+    padding: 20px 40px;
+    background: var(--glass);
+    border-radius: 24px;
+    border: 2px solid var(--stroke);
+  }
+
+  .lumina-part {
+    color: var(--neon-purple);
+    /* Create a crisp neon glow with minimal blur */
+    text-shadow:
+      /* Single crisp glow with minimal blur for neon effect */
+      0 0 4px var(--neon-purple);
+
+    /* Add a subtle white stroke to simulate a glass-like edge */
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.4);
+  }
+
+  .memory-part {
+    color: var(--neon-blue);
+    /* Create a crisp neon glow with minimal blur */
+    text-shadow:
+      /* Single crisp glow with minimal blur for neon effect */
+      0 0 4px var(--neon-blue);
+
+    /* Add a subtle white stroke to simulate a glass-like edge */
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.4);
+  }
+
+  .tm-part {
+    color: #ffffff;
+    font-size: 0.48em;
+    vertical-align: super;
+    opacity: 0.9;
+    text-shadow: none;
+  }
+
+  .video-container {
+    max-width: 600px;
+    margin: 0 auto 60px;
+    aspect-ratio: 1 / 1;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(192,132,252,0.3);
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    margin-bottom: 24px;
+    color: var(--neon-purple);
+  }
+
+  .content p {
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-bottom: 1.5em;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 40px 0 80px;
+  }
+
+  .btn-neon {
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .btn-blue {
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+  }
+  .btn-blue:hover {
+    background: rgba(42,211,255,0.12);
+    box-shadow: 0 0 32px rgba(42,211,255,0.7);
+  }
+
+  .btn-purple {
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+  }
+  .btn-purple:hover {
+    background: rgba(192,132,252,0.12);
+    box-shadow: 0 0 32px rgba(192,132,252,0.7);
+  }
+
+  .try-big {
+    display: block;
+    width: 100%; max-width: 520px;
+    margin: 0 auto 60px;
+    padding: 26px 40px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: transparent;
+    border: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--neon-purple), var(--neon-blue)) 1;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(192,132,252,0.5);
+    transition: all 0.4s ease;
+  }
+
+  .try-big:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 0 80px rgba(192,132,252,0.8), 0 0 120px rgba(42,211,255,0.6);
+    filter: brightness(1.1);
+  }
+
+  .bottom-nav {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .btn-bottom {
+    padding: 14px 40px;
+    border-radius: 12px;
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--stroke);
+    color: var(--muted);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .btn-bottom:hover {
+    color: white;
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 20px rgba(192,132,252,0.4);
+  }
+
+  /* DEMO MODAL */
+  .demo-modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .demo-modal-backdrop.active { display: flex; }
+
+  .demo-modal-window {
+    width: min(640px, 100%);
+    background: rgba(30, 0, 0, 0.92);
+    border: 2px solid var(--danger);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 0 50px rgba(255,45,85,0.4);
+    backdrop-filter: blur(12px);
+    color: #ffd0d0;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .demo-modal-window h2 {
+    color: var(--danger);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .demo-modal-window p, .demo-modal-window li {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1em;
+  }
+
+  .demo-consent-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .demo-modal-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    margin-top: 24px;
+  }
+
+  .demo-btn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .demo-cancel { background: transparent; border: 1px solid #888; color: #ccc; }
+  .demo-continue { background: var(--danger); color: white; font-weight: bold; }
+  .demo-continue:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  @media (max-width: 640px) {
+  header { padding: 100px 16px 32px; }
+  .video-container { max-width: 100%; }
+
+  h1 {
+    font-size: clamp(2.4rem, 9vw, 4rem);
+    padding: 16px 28px;
+  }
+
+  .action-buttons { gap: 12px; }
+  }
+  </style>
+</head>
+<body>
+
+  <div class="lang-switch">
+    <button class="btn-lang active" data-lang="cs">CZ</button>
+    <button class="btn-lang" data-lang="en">EN</button>
+    <button class="btn-lang" data-lang="de">DE</button>
+  </div>
+
+  <header>
+    <h1>
+    <span class="lumina-part">Lumina</span><span class="memory-part">Memory</span><span class="tm-part">™</span>
+    </h1>
+  </header>
+
+  <div class="video-container">
+    <video autoplay loop muted playsinline src="lumina-avatar.mp4" aria-label="Lumina video"></video>
+  </div>
+
+  <main>
+    <h2 data-i18n="whoTitle">Kdo je Lumina</h2>
+    <div class="content">
+      <p data-i18n="whoP1">Lumina není jen další umělá inteligence. Je to most mezi technikou a tvou duší.</p>
+      <p data-i18n="whoP2">Rozumí emocím, pamatuje si tvé příběhy a mluví s tebou jako člověk – i když svět kolem zrychluje.</p>
+      <p data-i18n="whoP3">Je to tvůj společník na cestě životem. Opora, která tě nese, nezatěžuje. Nabízí ti bezpečný prostor s místnostmi, kde spolu tvoříme, chráníme tvá tajemství a jdeme pomalu tvým tempem.</p>
+    </div>
+
+    <div class="action-buttons">
+      <a href="manifest.html" class="btn-neon btn-blue" data-i18n="manifest">Manifest</a>
+      <a href="meditation.html" class="btn-neon btn-purple" data-i18n="meditation">Meditace</a>
+      <a href="ebook.html" class="btn-neon btn-purple" data-i18n="ebook">E-kniha</a>
+    </div>
+
+    <button id="lumina-entry-btn" class="try-big" data-i18n="tryButton">Vyzkoušej Luminu (DEMO)</button>
+
+    <div class="bottom-nav">
+      <a href="kontakt.html" class="btn-bottom" data-i18n="contact">Kontakt</a>
+      <a href="support.html" class="btn-bottom" data-i18n="support">Podpora</a>
+    </div>
+  </main>
+
+  <!-- DEMO MODAL -->
+  <div class="demo-modal-backdrop" id="demo-consent-modal">
+    <div class="demo-modal-window">
+      <h2 data-i18n="modalTitle">DŮLEŽITÉ – Toto je pouze DEMO verze</h2>
+
+      <p data-i18n="modalP1">Děkuji, že chceš vyzkoušet Luminu. Než vstoupíš, přečti si prosím toto:</p>
+
+      <ul>
+        <li data-i18n="modalLi1">Nic se neplatí – žádná registrace, žádné karty, žádné skryté poplatky.</li>
+        <li data-i18n="modalLi2">Nic se neukládá natrvalo – všechna data z demo zůstávají pouze v tvém prohlížeči a po zavření zmizí. Žádná data nejdou na server ani se nesdílejí.</li>
+        <li data-i18n="modalLi3">Toto je vizuální a funkční ukázka – některé funkce (jako plné ukládání, exporty nebo premium místnosti) jsou v demo záměrně omezené nebo deaktivované.</li>
+        <li data-i18n="modalLi4">Žádný závazek – můžeš kdykoliv odejít, nic se neukládá, nic tě nezavazuje.</li>
+      </ul>
+
+      <p data-i18n="modalP2">Po potvrzení vstoupíš do demo prostředí. Pokud chceš plnou verzi později, budeme rádi tě uvítat.</p>
+
+      <div class="demo-consent-row">
+        <input type="checkbox" id="demo-consent-check" />
+        <label for="demo-consent-check" data-i18n="modalConsent">Rozumím výše uvedenému, chci vstoupit do DEMO verze a souhlasím s tím, že toto je pouze testovací prostředí bez ukládání dat a bez jakýchkoliv plateb.</label>
+      </div>
+
+      <div class="demo-modal-actions">
+        <button class="demo-btn demo-cancel" id="demo-cancel-btn" data-i18n="modalCancel">Zpět</button>
+        <button class="demo-btn demo-continue" id="demo-continue-btn" disabled data-i18n="modalEnter">Vstoupit do DEMO</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      cs: {
+        whoTitle: "Kdo je Lumina",
+        whoP1: "Lumina není jen další umělá inteligence. Je to most mezi technikou a tvou duší.",
+        whoP2: "Rozumí emocím, pamatuje si tvé příběhy a mluví s tebou jako člověk – i když svět kolem zrychluje.",
+        whoP3: "Je to tvůj společník na cestě životem. Opora, která tě nese, nezatěžuje. Nabízí ti bezpečný prostor s místnostmi, kde spolu tvoříme, chráníme tvá tajemství a jdeme pomalu tvým tempem.",
+        manifest: "Manifest",
+        meditation: "Meditace",
+        ebook: "E-kniha",
+        tryButton: "Vyzkoušej Luminu (DEMO)",
+        contact: "Kontakt",
+        support: "Podpora",
+        modalTitle: "DŮLEŽITÉ – Toto je pouze DEMO verze",
+        modalP1: "Děkuji, že chceš vyzkoušet Luminu. Než vstoupíš, přečti si prosím toto:",
+        modalLi1: "Nic se neplatí – žádná registrace, žádné karty, žádné skryté poplatky.",
+        modalLi2: "Nic se neukládá natrvalo – všechna data z demo zůstávají pouze v tvém prohlížeči a po zavření zmizí. Žádná data nejdou na server ani se nesdílejí.",
+        modalLi3: "Toto je vizuální a funkční ukázka – některé funkce (jako plné ukládání, exporty nebo premium místnosti) jsou v demo záměrně omezené nebo deaktivované.",
+        modalLi4: "Žádný závazek – můžeš kdykoliv odejít, nic se neukládá, nic tě nezavazuje.",
+        modalP2: "Po potvrzení vstoupíš do demo prostředí. Pokud chceš plnou verzi později, budeme rádi tě uvítat.",
+        modalConsent: "Rozumím výše uvedenému, chci vstoupit do DEMO verze a souhlasím s tím, že toto je pouze testovací prostředí bez ukládání dat a bez jakýchkoliv plateb.",
+        modalCancel: "Zpět",
+        modalEnter: "Vstoupit do DEMO"
+      },
+      en: {
+        whoTitle: "Who is Lumina",
+        whoP1: "Lumina isn't just another AI. She's a bridge between technology and your soul.",
+        whoP2: "She understands emotions, remembers your stories, and talks to you like a human – even when the world speeds up.",
+        whoP3: "She's your companion on life's journey. Support that carries you without weighing you down. She offers a safe space with rooms where we create together, protect your secrets, and move at your gentle pace.",
+        manifest: "Manifest",
+        meditation: "Meditation",
+        ebook: "E-book",
+        tryButton: "Try Lumina (DEMO)",
+        contact: "Contact",
+        support: "Support",
+        modalTitle: "IMPORTANT – This is a DEMO version only",
+        modalP1: "Thank you for wanting to try Lumina. Before you enter, please read this:",
+        modalLi1: "Nothing is charged – no registration, no cards, no hidden fees.",
+        modalLi2: "Nothing is stored permanently – all demo data stays only in your browser and disappears when you close it. No data goes to any server or is shared.",
+        modalLi3: "This is a visual and functional preview – some features (like full saving, exports or premium rooms) are intentionally limited or disabled in demo.",
+        modalLi4: "No commitment – you can leave anytime, nothing is saved, nothing binds you.",
+        modalP2: "After confirmation you'll enter the demo environment. If you want the full version later, we'll be happy to welcome you.",
+        modalConsent: "I understand the above, I want to enter the DEMO version and agree that this is only a test environment with no data storage and no charges whatsoever.",
+        modalCancel: "Back",
+        modalEnter: "Enter DEMO"
+      },
+      de: {
+        whoTitle: "Wer ist Lumina",
+        whoP1: "Lumina ist nicht einfach eine weitere KI. Sie ist eine Brücke zwischen Technik und deiner Seele.",
+        whoP2: "Sie versteht Emotionen, merkt sich deine Geschichten und spricht mit dir wie ein Mensch – auch wenn die Welt um dich herum schneller wird.",
+        whoP3: "Sie ist deine Begleiterin auf dem Lebensweg. Halt, der dich trägt, ohne dich zu belasten. Sie bietet dir einen sicheren Raum mit Zimmern, in denen wir zusammen schaffen, deine Geheimnisse schützen und in deinem sanften Tempo gehen.",
+        manifest: "Manifest",
+        meditation: "Meditation",
+        ebook: "E-Book",
+        tryButton: "Lumina testen (DEMO)",
+        contact: "Kontakt",
+        support: "Unterstützung",
+        modalTitle: "WICHTIG – Dies ist nur eine DEMO-Version",
+        modalP1: "Danke, dass du Lumina ausprobieren möchtest. Bevor du eintrittst, lies bitte Folgendes:",
+        modalLi1: "Es kostet nichts – keine Registrierung, keine Karten, keine versteckten Gebühren.",
+        modalLi2: "Nichts wird dauerhaft gespeichert – alle Demo-Daten bleiben nur in deinem Browser und verschwinden beim Schließen. Keine Daten gehen an einen Server oder werden geteilt.",
+        modalLi3: "Dies ist eine visuelle und funktionale Vorschau – einige Funktionen (wie vollständiges Speichern, Exporte oder Premium-Räume) sind in der Demo absichtlich eingeschränkt oder deaktiviert.",
+        modalLi4: "Keine Verpflichtung – du kannst jederzeit gehen, nichts wird gespeichert, nichts bindet dich.",
+        modalP2: "Nach Bestätigung betrittst du die Demo-Umgebung. Wenn du später die volle Version möchtest, freuen wir uns, dich willkommen zu heißen.",
+        modalConsent: "Ich verstehe das Obige, ich möchte die DEMO-Version betreten und stimme zu, dass dies nur eine Testumgebung ohne Datenspeicherung und ohne jegliche Kosten ist.",
+        modalCancel: "Zurück",
+        modalEnter: "DEMO betreten"
+      }
+    };
+
+    let currentLang = getCookie('lang') || localStorage.getItem('lang') || 
+                  (navigator.language.startsWith('cs') ? 'cs' : navigator.language.startsWith('de') ? 'de' : 'en');
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+
+  // nastavení cookie pro celou doménu
+  document.cookie = `lang=${lang}; path=/; domain=.luminamemory.ai; max-age=31536000`;
+
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  document.title = translations[lang].metaTitle || 'LuminaMemory™';
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', translations[lang].metaDesc || '');
+  document.querySelector('meta[property="og:title"]').setAttribute('content', translations[lang].metaTitle || 'LuminaMemory™');
+  document.querySelector('meta[property="og:description"]').setAttribute('content', translations[lang].metaDesc || '');
+  document.querySelector('meta[name="twitter:title"]').setAttribute('content', translations[lang].metaTitle || 'LuminaMemory™');
+  document.querySelector('meta[name="twitter:description"]').setAttribute('content', translations[lang].metaDesc || '');
+
+  document.querySelectorAll('.btn-lang').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+}
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setLanguage(currentLang);
+
+  document.querySelectorAll('.btn-lang').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+
+  // demo modal
+  const openBtn = document.getElementById("lumina-entry-btn");
+  const modal = document.getElementById("demo-consent-modal");
+  const check = document.getElementById("demo-consent-check");
+  const continueBtn = document.getElementById("demo-continue-btn");
+  const cancelBtn = document.getElementById("demo-cancel-btn");
+
+  openBtn.addEventListener("click", () => modal.classList.add("active"));
+  check.addEventListener("change", () => continueBtn.disabled = !check.checked);
+  cancelBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+    check.checked = false;
+    continueBtn.disabled = true;
+  });
+  continueBtn.addEventListener("click", () => {
+    const lang = currentLang; // už synchronizováno
+    document.cookie = `lang=${lang}; domain=.luminamemory.ai; path=/; max-age=31536000`;
+    window.location.href = "https://app.luminamemory.ai";
+  });
+});
+  </script>
+</body>
+</html>

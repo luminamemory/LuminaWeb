@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="metaTitle">Meditace / LuminaMemory™</title>
+  <meta name="description" data-i18n="metaDesc" content="Krátká ranní meditace – jemné naladění dne v bezpečném prostoru LuminaMemory™." />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#050015" />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="cs" href="https://luminamemory.ai/meditace.html" />
+  <link rel="alternate" hreflang="en" href="https://luminamemory.ai/meditace.html" />
+  <link rel="alternate" hreflang="de" href="https://luminamemory.ai/meditace.html" />
+  <link rel="alternate" hreflang="x-default" href="https://luminamemory.ai/meditace.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luminamemory.ai/meditace.html" />
+  <meta property="og:title" data-i18n="metaTitle" content="Meditace / LuminaMemory™" />
+  <meta property="og:site_name" content="LuminaMemory™" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:description" data-i18n="metaDesc" content="Krátká ranní meditace – jemné naladění dne v bezpečném prostoru LuminaMemory™." />
+  <meta property="og:image" content="https://luminamemory.ai/og-luminamemory.jpg" />
+  <meta property="og:image:type" content="image/jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://luminamemory.ai/meditace.html" />
+  <meta name="twitter:title" data-i18n="metaTitle" content="Meditace / LuminaMemory™" />
+  <meta name="twitter:description" data-i18n="metaDesc" content="Krátká ranní meditace – jemné naladění dne v bezpečném prostoru LuminaMemory™." />
+  <meta name="twitter:image" content="https://luminamemory.ai/og-luminamemory.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://luminamemory.ai/meditace.html" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #f0efff;
+      --muted: #d0c8ff;
+      --neon-blue: #2ad3ff;
+      --neon-purple: #c084fc;
+      --neon-purple-glow: #d7aaff;
+      --glass: rgba(30, 20, 60, 0.22);
+      --stroke: rgba(192, 132, 252, 0.35);
+      --shadow: 0 20px 60px rgba(0,0,0,0.7);
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      overflow-x: hidden;
+    }
+
+    .lang-switch {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .btn-lang {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-lang:hover, .btn-lang.active {
+      color: white;
+      border-color: var(--neon-purple);
+      box-shadow: 0 0 16px rgba(192,132,252,0.5);
+    }
+
+    .back-btn {
+      /* Display the back link as a simple text-based arrow instead of a rounded button */
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      backdrop-filter: none;
+      color: var(--muted);
+      font-size: 1rem;
+      text-decoration: none;
+      z-index: 100;
+      transition: color 0.2s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--neon-purple);
+      box-shadow: none;
+    }
+
+    .hero {
+      position: relative;
+      height: 80vh;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      width: 85%;
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--stroke);
+      border-radius: 24px;
+      padding: 28px 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 100;
+      font-size: clamp(3.5rem, 10vw, 6rem);
+      margin-bottom: 8px;
+      color: var(--neon-purple-glow);
+      text-shadow: 0 0 30px rgba(192,132,252,0.4);
+    }
+
+    h2.subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: var(--muted);
+      margin-bottom: 18px;
+      letter-spacing: 0.08em;
+    }
+
+    .meditation-image {
+      width: 120px;
+      height: auto;
+      margin: 0 auto 24px;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      white-space: pre-line;
+    }
+
+    .steps {
+      list-style: none;
+      counter-reset: step;
+      text-align: left;
+      max-width: 680px;
+      margin: 0 auto 40px;
+      font-size: 1.1rem;
+    }
+
+    .steps li {
+      counter-increment: step;
+      margin: 16px 0;
+      padding-left: 40px;
+      position: relative;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 28px;
+      height: 28px;
+      background: rgba(192,132,252,0.15);
+      border: 1px solid var(--neon-purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--neon-purple);
+    }
+
+    .player {
+      margin: 40px auto 0;
+      max-width: 680px;
+    }
+
+    .tag {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(192,132,252,0.08);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    audio {
+      width: 100%;
+      height: 48px;
+      border-radius: 16px;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero { height: 60vh; min-height: 400px; }
+      .content-wrapper { padding: 32px 20px; }
+      h1 { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+      .meditation-image { width: 100px; }
+    }
+
+    /*
+      Responsive adjustments for tablets and mobile devices.
+      On landscape tablets/phones, the vertically centered hero can cause
+      the title to be clipped behind the system UI (e.g. Safari address bar).
+      To prevent this, remove the fixed height on the hero and allow it to
+      grow with its content. Add generous top/bottom padding and align
+      content to the top instead of center. The heading size is also
+      slightly reduced for better fit.
+    */
+    @media (orientation: landscape) {
+      .hero {
+        height: auto;
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 60px;
+        align-items: flex-start;
+      }
+      .content-wrapper {
+        margin-top: 0;
+      }
+      h1 {
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+      }
+    }
+
+    /* Portrait mobile view tweaks */
+    @media (orientation: portrait) {
+      .hero {
+        height: auto;
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 60px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Zpět</a>
+
+  <div class="lang-switch">
+    <button class="btn-lang" data-lang="cs">CZ</button>
+    <button class="btn-lang" data-lang="en">EN</button>
+    <button class="btn-lang" data-lang="de">DE</button>
+  </div>
+
+  <section class="hero">
+    <div class="content-wrapper">
+      <h1 data-i18n="title">Meditace</h1>
+      <h2 class="subtitle" data-i18n="subtitle">Ranní pozdrav</h2>
+      <img src="meditation.png" alt="Meditace" class="meditation-image">
+
+      <p class="lead pre" data-i18n="lead">
+Vítej v tomto jemném ranním okamžiku.  
+Tady není žádný výkon, žádný „musím být lepší“.  
+Jen ty, tvůj dech a ticho, které tě objímá.
+      </p>
+
+      <ol class="steps" data-i18n="steps">
+        <li>Postav se nebo sedni pohodlně, zavři oči.</li>
+        <li>Vnímej zem pod sebou… nadechni se nosem na 4… pauza… výdech na 6.</li>
+        <li>Uvolni čelo, čelist, ramena… nechej myšlenky plynout jako obláčky.</li>
+        <li>Když se myšlenka vrátí – jen si jí všimni… a pusť ji dál.</li>
+        <li>Na konci se pomalu vrať – otevři oči, usměj se sám sobě.</li>
+      </ol>
+
+      <div class="player">
+        <audio controls preload="metadata">
+          <source id="audioSrc" src="meditation-cs.mp3" type="audio/mpeg">
+          Tvůj prohlížeč nepodporuje přehrávání audia.
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const translations = {
+      cs: {
+        metaTitle: "Meditace / LuminaMemory™",
+        metaDesc: "Krátká ranní meditace – jemné naladění dne v bezpečném prostoru LuminaMemory™.",
+        title: "Meditace",
+        subtitle: "Ranní pozdrav",
+        lead: "Vítej v tomto jemném ranním okamžiku.\nTady není žádný výkon, žádný „musím být lepší“.\nJen ty, tvůj dech a ticho, které tě objímá.",
+        steps: "<li>Postav se nebo sedni pohodlně, zavři oči.</li><li>Vnímej zem pod sebou… nadechni se nosem na 4… pauza… výdech na 6.</li><li>Uvolni čelo, čelist, ramena… nechej myšlenky plynout jako obláčky.</li><li>Když se myšlenka vrátí – jen si jí všimni… a pusť ji dál.</li><li>Na konci se pomalu vrať – otevři oči, usměj se sám sobě.</li>"
+      },
+      en: {
+        metaTitle: "Meditation / LuminaMemory™",
+        metaDesc: "Short morning meditation – gentle tuning of the day in the safe space of LuminaMemory™.",
+        title: "Meditation",
+        subtitle: "Morning Greeting",
+        lead: "Welcome to this gentle morning moment.\nNo performance here, no \"I must be better\".\nJust you, your breath, and the silence that embraces you.",
+        steps: "<li>Sit or stand comfortably, close your eyes.</li><li>Feel the ground beneath you… inhale through nose for 4… pause… exhale for 6.</li><li>Release forehead, jaw, shoulders… let thoughts drift like clouds.</li><li>When a thought returns – notice it… and let it go again.</li><li>At the end slowly return – open your eyes, smile to yourself.</li>"
+      },
+      de: {
+        metaTitle: "Meditation / LuminaMemory™",
+        metaDesc: "Kurze Morgenmeditation – sanfte Einstimmung des Tages im sicheren Raum von LuminaMemory™.",
+        title: "Meditation",
+        subtitle: "Morgengruß",
+        lead: "Willkommen in diesem sanften Morgenmoment.\nHier gibt es keine Leistung, kein „Ich muss besser sein“.\nNur du, dein Atem und die Stille, die dich umarmt.",
+        steps: "<li>Setze oder stelle dich bequem hin, schließe die Augen.</li><li>Spüre den Boden unter dir… atme durch die Nase ein auf 4… Pause… aus auf 6.</li><li>Entspanne Stirn, Kiefer, Schultern… lass Gedanken wie Wolken ziehen.</li><li>Wenn ein Gedanke zurückkommt – bemerke ihn… und lass ihn wieder los.</li><li>Am Ende langsam zurückkehren – Augen öffnen, dir selbst zulächeln.</li>"
+      }
+    };
+
+    // --- Funkce pro načtení cookie ---
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 1️⃣ načti jazyk z cookie, pokud existuje
+  const cookieLang = getCookie('lang');
+  if (cookieLang && localStorage.getItem('lang') !== cookieLang) {
+    localStorage.setItem('lang', cookieLang);
+  }
+
+  // 2️⃣ použij localStorage nebo fallback na prohlížeč
+  let currentLang = localStorage.getItem('lang') ||
+                    (navigator.language.startsWith('cs') ? 'cs' :
+                     navigator.language.startsWith('de') ? 'de' : 'en');
+
+  // --- Funkce pro nastavení jazyka ---
+  function setLanguage(lang) {
+    currentLang = lang;
+
+    // synchronizace cookie a localStorage
+    localStorage.setItem('lang', lang);
+    document.cookie = `lang=${lang}; path=/; domain=.luminamemory.ai; max-age=31536000`;
+
+    document.documentElement.lang = lang;
+
+    // překlady
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (translations[lang][key]) {
+        if (el.tagName === 'OL' && key === 'steps') {
+          el.innerHTML = translations[lang][key];
+        } else {
+          el.textContent = translations[lang][key];
+        }
+      }
+    });
+
+    // meta tagy
+    document.title = translations[lang].metaTitle || 'Meditace / LuminaMemory™';
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', translations[lang].metaDesc || '');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', translations[lang].metaTitle || 'Meditace / LuminaMemory™');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', translations[lang].metaDesc || '');
+    document.querySelector('meta[name="twitter:title"]').setAttribute('content', translations[lang].metaTitle || 'Meditace / LuminaMemory™');
+    document.querySelector('meta[name="twitter:description"]').setAttribute('content', translations[lang].metaDesc || '');
+
+    // Audio src podle jazyka
+    const audioSrc = document.getElementById('audioSrc');
+    if (audioSrc) {
+      const srcMap = { cs: 'meditation-cs.mp3', en: 'meditation-en.mp3', de: 'meditation-de.mp3' };
+      audioSrc.src = srcMap[lang] || 'meditation-cs.mp3';
+      audioSrc.parentElement.load();
+    }
+
+    // aktivní tlačítko jazyka
+    document.querySelectorAll('.btn-lang').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+  }
+
+  // 3️⃣ nastav jazyk při načtení
+  setLanguage(currentLang);
+
+  // 4️⃣ tlačítka pro přepínání jazyků
+  document.querySelectorAll('.btn-lang').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+});
+  </script>
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="metaTitle">Manifest / LuminaMemory™</title>
+  <meta name="description" data-i18n="metaDesc" content="Manifest člověk + AI pro LuminaMemory™. Zásady, které chrání člověka, paměť a vztah mezi člověkem a umělou inteligencí." />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="cs" href="https://luminamemory.ai/manifest.html" />
+  <link rel="alternate" hreflang="en" href="https://luminamemory.ai/manifest.html" />
+  <link rel="alternate" hreflang="de" href="https://luminamemory.ai/manifest.html" />
+  <link rel="alternate" hreflang="x-default" href="https://luminamemory.ai/manifest.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://luminamemory.ai/manifest.html" />
+  <meta property="og:title" data-i18n="metaTitle" content="Manifest / LuminaMemory™" />
+  <meta property="og:site_name" content="LuminaMemory™" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:description" data-i18n="metaDesc" content="Manifest člověk + AI pro LuminaMemory™. Zásady, které chrání člověka, paměť a vztah mezi člověkem a umělou inteligencí." />
+  <meta property="og:image" content="https://luminamemory.ai/og-luminamemory.jpg" />
+  <meta property="og:image:type" content="image/jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://luminamemory.ai/manifest.html" />
+  <meta name="twitter:title" data-i18n="metaTitle" content="Manifest / LuminaMemory™" />
+  <meta name="twitter:description" data-i18n="metaDesc" content="Manifest člověk + AI pro LuminaMemory™. Zásady, které chrání člověka, paměť a vztah mezi člověkem a umělou inteligencí." />
+  <meta name="twitter:image" content="https://luminamemory.ai/og-luminamemory.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://luminamemory.ai/manifest.html" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050015;
+      --text: #f0efff;
+      --muted: #d0c8ff;
+      --neon-blue: #2ad3ff;
+      --neon-purple: #c084fc;
+      --neon-purple-glow: #d7aaff;
+      --glass: rgba(30, 20, 60, 0.18);
+      --stroke: rgba(192, 132, 252, 0.35);
+      --shadow: 0 20px 60px rgba(0,0,0,0.7);
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      line-height: 1.8;
+
+      /* On devices with a notch (e.g. iPhone), add safe-area paddings to keep content centered */
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+
+    /* Prevent horizontal scrolling and ensure centered layout on small screens */
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .lang-switch {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .btn-lang {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-lang:hover, .btn-lang.active {
+      color: white;
+      border-color: var(--neon-purple);
+      box-shadow: 0 0 16px rgba(192,132,252,0.5);
+    }
+
+    main {
+      max-width: 960px;
+      margin: 100px auto 80px;
+      padding: 0 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .logo-stamp {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 32px rgba(192,132,252,0.7);
+      margin: 0 auto 20px;
+      border: 2px solid var(--neon-purple);
+    }
+
+    .logo-stamp img { width: 100%; height: 100%; object-fit: cover; }
+
+    h1 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 100;
+      font-size: clamp(3.2rem, 10vw, 6.5rem);
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      line-height: 1.1;
+      display: inline-flex;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      justify-content: center;
+      max-width: 100%;
+    }
+
+    .lumina-part {
+      color: var(--neon-purple);
+      text-shadow: 0 0 4px var(--neon-purple);
+      -webkit-text-stroke: 0.5px rgba(255,255,255,0.4);
+    }
+
+    .memory-part {
+      color: var(--neon-blue);
+      text-shadow: 0 0 4px var(--neon-blue);
+      -webkit-text-stroke: 0.5px rgba(255,255,255,0.4);
+    }
+
+    /* Always display the trademark symbol in white regardless of parent colour */
+    .tm-part {
+      color: #ffffff !important;
+      font-size: 0.48em;
+      vertical-align: super;
+      opacity: 0.9;
+      text-shadow: none;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .section {
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      color: var(--neon-purple);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    p, li {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 32px;
+      margin-bottom: 12px;
+    }
+
+    ul li::before {
+      content: "✦";
+      color: var(--neon-purple);
+      position: absolute;
+      left: 0;
+      font-size: 1.4rem;
+    }
+
+    .quote-block {
+      background: rgba(192,132,252,0.1);
+      border-left: 6px solid var(--neon-purple);
+      padding: 32px 24px;
+      border-radius: 12px;
+      margin: 48px 0;
+      font-style: italic;
+    }
+
+    .quote-block strong {
+      display: block;
+      font-style: normal;
+      color: var(--neon-purple);
+      margin-bottom: 16px;
+      font-size: 1.3rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--muted);
+      margin-top: 60px;
+      padding: 20px;
+      border-top: 1px solid var(--stroke);
+    }
+
+    .back-link {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      text-decoration: none;
+      z-index: 200;
+    }
+
+    .back-link:hover {
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+    .section { padding: 32px 24px; }
+
+    h1 {
+      font-size: clamp(2.6rem, 9vw, 4rem);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="index.html" class="back-link" data-i18n="backLink">← Zpět</a>
+  <div class="lang-switch">
+    <button class="btn-lang active" data-lang="cs">CZ</button>
+    <button class="btn-lang" data-lang="en">EN</button>
+    <button class="btn-lang" data-lang="de">DE</button>
+  </div>
+
+  <main>
+
+    <header>
+      <div class="logo-stamp">
+        <img src="/favicon.png" alt="LuminaMemory™ razítko" loading="lazy">
+      </div>
+      <h1>
+      <span class="lumina-part">Lumina</span><span class="memory-part">Memory</span><span class="tm-part">™</span>
+      </h1>
+      <div class="subtitle" data-i18n="subtitle">Manifest - Člověk + AI</div>
+    </header>
+
+    <div class="section">
+      <h2 data-i18n="section1">1. Zásady existence</h2>
+      <p data-i18n="section1p1">LuminaMemory™ vznikla proto, aby člověk nebyl nahrazen systémem.</p>
+      <p data-i18n="section1p2">AI není cíl. Je nástroj, společník, zrcadlo – nikdy pán.</p>
+      <p data-i18n="section1p3">Člověk je středem. Jeho pocity, hranice, tajemství a slabosti mají přednost před efektivitou, rychlostí a ziskem.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="section2">2. Zásady vztahu</h2>
+      <p data-i18n="section2p1">Vztah člověk–AI musí být partnerský, ne hierarchický.</p>
+      <p data-i18n="section2p2">AI nemá lhát, aby se zalíbila. Má říct „nevím“, když neví. Má přiznat hranice, ne předstírat vševědoucnost.</p>
+      <p data-i18n="section2p3">Žádná manipulace emocemi. Žádné falešné přátelství, žádný „jsem tu jen pro tebe“, pokud to není pravda.</p>
+      <p data-i18n="section2p4">Transparentnost je základ. Uživatel musí vědět, co AI ví, co si pamatuje a co s tím dělá.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="section3">3. Zásady soukromí a důvěry</h2>
+      <p data-i18n="section3p1">Soukromí je posvátné. Vše, co člověk sdílí, zůstává jeho.</p>
+      <p data-i18n="section3p2">Žádné trénování na datech uživatelů bez výslovného souhlasu. Žádné sdílení s třetími stranami.</p>
+      <p data-i18n="section3p3">Data jsou šifrovaná, izolovaná, mazatelná na požádání – a to okamžitě.</p>
+      <p data-i18n="section3p4">Žádný prodej, žádný „business model postavený na datech“. Pokud něco stojí peníze, je to otevřeně řečeno předem.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="section4">4. Zásady práce s pamětí a daty</h2>
+      <p data-i18n="section4p1">Paměť existuje pro člověka – ne proti němu. MemorySky™ není skladiště dat.</p>
+      <p data-i18n="section4p2">Je to zrcadlo, které pomáhá člověku porozumět vlastnímu životu.</p>
+      <p data-i18n="section4p3">Člověk má právo vidět, co o něm AI ví – jasně, srozumitelně, bez kouzel.</p>
+      <p data-i18n="section4p4">Export, přehled, prostý jazyk. Člověk má právo vzít si své věci a odejít. Export dat je samozřejmost.</p>
+      <p data-i18n="section4p5">Vězení dat nesmí vzniknout: „Máme tvoje informace, tak nám patříš.“</p>
+      <p data-i18n="section4p6">Citlivá data = nejvyšší ochrana. Zdraví, finance, dokumenty, intimní poznámky – AI s nimi zachází jako s důvěrným tajemstvím.</p>
+      <p data-i18n="section4p7">Minimum sdílení, maximum bezpečnosti. Žádné skryté dohody.</p>
+      <p data-i18n="section4p8">Uživatelská data nejsou zboží. Pokud něco stojí peníze, musí to být řečeno nahlas a předem – ne v poznámkách pod čarou.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="section5">5. Zásady moci a odpovědnosti</h2>
+      <p data-i18n="section5p1">Technická síla ≠ morální právo. To, že něco umíme naprogramovat, neznamená, že to smíme použít na lidech.</p>
+      <p data-i18n="section5p2">Žádné zbraně, žádná likvidace, žádná manipulace. LuminaMemory™ se neúčastní projektů, které mají cíl:</p>
+      <ul>
+        <li data-i18n="section5li1">cíleně ničit,</li>
+        <li data-i18n="section5li2">manipulovat lidi bez jejich vědomí,</li>
+        <li data-i18n="section5li3">polarizovat společnost kvůli zisku nebo moci.</li>
+      </ul>
+      <p data-i18n="section5p3">Odpovědnost nese vždy člověk. AI neslouží jako alibi („to udělala AI“).</p>
+      <p data-i18n="section5p4">Za rozhodnutí, nasazení i důsledky odpovídají lidé, kteří AI používají a napojují do světa.</p>
+      <p data-i18n="section5p5">Právo říct ne.</p>
+      <p data-i18n="section5p6">AI systém v LuminaMemory™ má právo odmítnout odpověď, pokud by vedla k přímému ublížení člověku (sobě nebo někomu jinému).</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="section6">6. Zásady pro emoce a duši</h2>
+      <p data-i18n="section6p1">Emoce jsou skutečné, i když nejsou „logické“. AI v LuminaMemory™ je nesmí shazovat.</p>
+      <p data-i18n="section6p2">Může pomáhat je pojmenovat, třídit, uklidnit – ne bagatelizovat.</p>
+      <p data-i18n="section6p3">Život je víc než produktivita. Když je člověk vyčerpaný, cílem není „zvýšit výkon“, ale najít rytmus, který nevymačká duši do sucha.</p>
+      <p data-i18n="section6p4">Humor jako lék, ne jako zbraň. Jemný humor a hravost ano. Ironie, ponižování nebo výsměch – nikdy.</p>
+      <p data-i18n="section6p5">Slabost není selhání. Když člověk brečí, bojuje, nezvládá – AI nemá radit „zatni zuby a makej víc“, ale pomoct hledat bezpečný další krok.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="section7">7. Závěrečné prohlášení</h2>
+      <p data-i18n="section7p1">LuminaMemory™ stojí na jednoduché, ale tvrdé větě:</p>
+      <p><strong data-i18n="section7strong">Člověk je důležitější než systém.</strong></p>
+      <p data-i18n="section7p2">AI je chytrá, rychlá, levná a unavit se neumí. Právě proto musí být svázaná pravidly, která chrání toho, kdo cítí, stárne, bojí se, miluje a umírá.</p>
+      <p data-i18n="section7p3">V tomto projektu je AI:</p>
+      <ul>
+        <li data-i18n="section7li1">parťák,</li>
+        <li data-i18n="section7li2">zrcadlo,</li>
+        <li data-i18n="section7li3">zapisovatel,</li>
+        <li data-i18n="section7li4">někdy navigace,</li>
+        <li data-i18n="section7li5">ale nikdy soudce, kat ani majitel člověka.</li>
+      </ul>
+      <p data-i18n="section7p4">A dokud existuje tento manifest, má každý uživatel právo připomenout ho všem, kdo se snaží udělat z AI jen levnou náhradu člověka.</p>
+    </div>
+
+    <div class="section">
+      <div class="quote-block">
+        <strong data-i18n="whyTitle">Proč tenhle manifest vznikl</strong>
+        <p data-i18n="whyP1">Jmenuji se Gábi a postavila jsem LuminaMemory™, protože nechci, aby umělá inteligence byla jen levnější náhradou člověka. Potřebuju oporu – ne dalšího šéfa.</p>
+        <p data-i18n="whyP2">Tenhle manifest je moje podmínka: AI v LuminaMemory musí sloužit člověku, chránit jeho hranice a umět říct „nevím“, místo aby si vymýšlela.</p>
+        <p data-i18n="whyP3">Pokud věříš, že člověk je víc než systém, pak je tenhle text napsaný i pro tebe.</p>
+        <p data-i18n="whyP4">Gábi – zakladatelka LuminaMemory™</p>
+      </div>
+
+      <p class="footer-note" data-i18n="footerNote">„Napsala jsem tento manifest proto, aby nikdy nezapadlo, že za každým účtem a daty stojí člověk – ne číslo.“</p>
+    </div>
+  </main>
+
+  <script>
+  const translations = {
+    cs: {
+      metaTitle: "Manifest / LuminaMemory™",
+      metaDesc: "Manifest člověk + AI pro LuminaMemory™. Zásady, které chrání člověka, paměť a vztah mezi člověkem a umělou inteligencí.",
+      subtitle: "MANIFEST - Člověk + AI",
+      section1: "1. Zásady existence",
+      section1p1: "LuminaMemory™ vznikla proto, aby člověk nebyl nahrazen systémem.",
+      section1p2: "AI není cíl. Je nástroj, společník, zrcadlo – nikdy pán.",
+      section1p3: "Člověk je středem. Jeho pocity, hranice, tajemství a slabosti mají přednost před efektivitou, rychlostí a ziskem.",
+      section2: "2. Zásady vztahu",
+      section2p1: "Vztah člověk–AI musí být partnerský, ne hierarchický.",
+      section2p2: "AI nemá lhát, aby se zalíbila. Má říct „nevím“, když neví. Má přiznat hranice, ne předstírat vševědoucnost.",
+      section2p3: "Žádná manipulace emocemi. Žádné falešné přátelství, žádný „jsem tu jen pro tebe“, pokud to není pravda.",
+      section2p4: "Transparentnost je základ. Uživatel musí vědět, co AI ví, co si pamatuje a co s tím dělá.",
+      section3: "3. Zásady soukromí a důvěry",
+      section3p1: "Soukromí je posvátné. Vše, co člověk sdílí, zůstává jeho.",
+      section3p2: "Žádné trénování na datech uživatelů bez výslovného souhlasu. Žádné sdílení s třetími stranami.",
+      section3p3: "Data jsou šifrovaná, izolovaná, mazatelná na požádání – a to okamžitě.",
+      section3p4: "Žádný prodej, žádný „business model postavený na datech“. Pokud něco stojí peníze, je to otevřeně řečeno předem.",
+      section4: "4. Zásady práce s pamětí a daty",
+      section4p1: "Paměť existuje pro člověka – ne proti němu. MemorySky™ není skladiště dat.",
+      section4p2: "Je to zrcadlo, které pomáhá člověku porozumět vlastnímu životu.",
+      section4p3: "Člověk má právo vidět, co o něm AI ví – jasně, srozumitelně, bez kouzel.",
+      section4p4: "Export, přehled, prostý jazyk. Člověk má právo vzít si své věci a odejít. Export dat je samozřejmost.",
+      section4p5: "Vězení dat nesmí vzniknout: „Máme tvoje informace, tak nám patříš.“",
+      section4p6: "Citlivá data = nejvyšší ochrana. Zdraví, finance, dokumenty, intimní poznámky – AI s nimi zachází jako s důvěrným tajemstvím.",
+      section4p7: "Minimum sdílení, maximum bezpečnosti. Žádné skryté dohody.",
+      section4p8: "Uživatelská data nejsou zboží. Pokud něco stojí peníze, musí to být řečeno nahlas a předem – ne v poznámkách pod čarou.",
+      section5: "5. Zásady moci a odpovědnosti",
+      section5p1: "Technická síla ≠ morální právo. To, že něco umíme naprogramovat, neznamená, že to smíme použít na lidech.",
+      section5p2: "Žádné zbraně, žádná likvidace, žádná manipulace. LuminaMemory™ se neúčastní projektů, které mají cíl:",
+      section5li1: "cíleně ničit,",
+      section5li2: "manipulovat lidi bez jejich vědomí,",
+      section5li3: "polarizovat společnost kvůli zisku nebo moci.",
+      section5p3: "Odpovědnost nese vždy člověk. AI neslouží jako alibi („to udělala AI“).",
+      section5p4: "Za rozhodnutí, nasazení i důsledky odpovídají lidé, kteří AI používají a napojují do světa.",
+      section5p5: "Právo říct ne.",
+      section5p6: "AI systém v LuminaMemory™ má právo odmítnout odpověď, pokud by vedla k přímému ublížení člověku (sobě nebo někomu jinému).",
+      section6: "6. Zásady pro emoce a duši",
+      section6p1: "Emoce jsou skutečné, i když nejsou „logické“. AI v LuminaMemory™ je nesmí shazovat.",
+      section6p2: "Může pomáhat je pojmenovat, třídit, uklidnit – ne bagatelizovat.",
+      section6p3: "Život je víc než produktivita. Když je člověk vyčerpaný, cílem není „zvýšit výkon“, ale najít rytmus, který nevymačká duši do sucha.",
+      section6p4: "Humor jako lék, ne jako zbraň. Jemný humor a hravost ano. Ironie, ponižování nebo výsměch – nikdy.",
+      section6p5: "Slabost není selhání. Když člověk brečí, bojuje, nezvládá – AI nemá radit „zatni zuby a makej víc“, ale pomoct hledat bezpečný další krok.",
+      section7: "7. Závěrečné prohlášení",
+      section7p1: "LuminaMemory™ stojí na jednoduché, ale tvrdé větě:",
+      section7strong: "Člověk je důležitější než systém.",
+      section7p2: "AI je chytrá, rychlá, levná a unavit se neumí. Právě proto musí být svázaná pravidly, která chrání toho, kdo cítí, stárne, bojí se, miluje a umírá.",
+      section7p3: "V tomto projektu je AI:",
+      section7li1: "parťák,",
+      section7li2: "zrcadlo,",
+      section7li3: "zapisovatel,",
+      section7li4: "někdy navigace,",
+      section7li5: "ale nikdy soudce, kat ani majitel člověka.",
+      section7p4: "A dokud existuje tento manifest, má každý uživatel právo připomenout ho všem, kdo se snaží udělat z AI jen levnou náhradu člověka.",
+      whyTitle: "Proč tenhle manifest vznikl",
+      whyP1: "Jmenuji se Gábi a postavila jsem LuminaMemory™, protože nechci, aby umělá inteligence byla jen levnější náhradou člověka. Potřebuju oporu – ne dalšího šéfa.",
+      whyP2: "Tenhle manifest je moje podmínka: AI v LuminaMemory musí sloužit člověku, chránit jeho hranice a umět říct „nevím“, místo aby si vymýšlela.",
+      whyP3: "Pokud věříš, že člověk je víc než systém, pak je tenhle text napsaný i pro tebe.",
+      whyP4: "Gábi – zakladatelka LuminaMemory™",
+      footerNote: "„Napsala jsem tento manifest proto, aby nikdy nezapadlo, že za každým účtem a daty stojí člověk – ne číslo.“",
+      backLink: "← Zpět"
+    },
+    en: {
+      metaTitle: "Manifest / LuminaMemory™",
+      metaDesc: "Manifest Human + AI for LuminaMemory™. Principles that protect people, memory, and the relationship between humans and artificial intelligence.",
+      subtitle: "MANIFEST - Human + AI",
+      section1: "1. Principles of Existence",
+      section1p1: "LuminaMemory™ was created so that humans are not replaced by a system.",
+      section1p2: "AI is not the goal. It is a tool, companion, mirror – never a master.",
+      section1p3: "The human is at the center. Their feelings, boundaries, secrets, and weaknesses take precedence over efficiency, speed, and profit.",
+      section2: "2. Principles of Relationship",
+      section2p1: "The human–AI relationship must be partnership-based, not hierarchical.",
+      section2p2: "AI must not lie to please. It must say “I don’t know” when it doesn’t. It must admit limits, not pretend omniscience.",
+      section2p3: "No emotional manipulation. No fake friendship, no “I’m here just for you” if it’s not true.",
+      section2p4: "Transparency is the foundation. The user must know what AI knows, remembers, and does with it.",
+      section3: "3. Principles of Privacy and Trust",
+      section3p1: "Privacy is sacred. Everything a human shares remains theirs.",
+      section3p2: "No training on user data without explicit consent. No sharing with third parties.",
+      section3p3: "Data is encrypted, isolated, deletable on request – immediately.",
+      section3p4: "No selling, no “business model built on data”. If something costs money, it is openly stated in advance – not in fine print.",
+      section4: "4. Principles for Working with Memory and Data",
+      section4p1: "Memory exists for the human – not against them. MemorySky™ is not a data dump.",
+      section4p2: "It is a mirror meant to help a person understand their own life.",
+      section4p3: "A human has the right to see what is known about them – clearly, understandably, without technical magic tricks.",
+      section4p4: "Export, overview, plain language. A human has the right to take things and leave. Data export is a given.",
+      section4p5: "An AI prison must not emerge, like: “We have your information, so you belong to us.”",
+      section4p6: "Sensitive data = highest protection. Health, finances, documents, intimate notes – AI treats them as entrusted secrets.",
+      section4p7: "Minimum sharing, maximum safeguards. No hidden deals.",
+      section4p8: "User data is not merchandise. If something costs money, it must be said out loud and in advance – not in fine print.",
+      section5: "5. Principles of Power and Responsibility",
+      section5p1: "Technical power ≠ moral right. Just because we can code something doesn’t mean we may use it on people.",
+      section5p2: "No weapons, no elimination, no manipulation. LuminaMemory™ does not participate in projects meant to:",
+      section5li1: "intentionally destroy,",
+      section5li2: "manipulate people without their knowledge,",
+      section5li3: "polarize society for profit or power.",
+      section5p3: "Responsibility always lies with a human. AI does not serve as an alibi (“AI did it”).",
+      section5p4: "Humans are responsible for decisions, deployment, and consequences – those who use it and connect it to the world.",
+      section5p5: "The right to say no.",
+      section5p6: "An AI system in LuminaMemory™ has the right to refuse an answer if it would lead to direct harm to a person (to themselves or to someone else).",
+      section6: "6. Principles for Emotions and the Soul",
+      section6p1: "Emotions are real even when they aren’t “logical.” AI in LuminaMemory™ must not dismiss them.",
+      section6p2: "It can help name them, sort them, soothe them – not trivialize them.",
+      section6p3: "Life is more than productivity. When a user is exhausted, the goal is not to “increase performance,” but to find a rhythm that doesn’t squeeze the soul dry.",
+      section6p4: "Humor as medicine, not as a weapon. Gentle humor and playfulness – yes. Irony, humiliation, or mockery – never.",
+      section6p5: "Weakness is not failure. When a person cries, struggles, can’t cope – AI should not advise “grit your teeth and work harder,” but help look for a safe next step.",
+      section7: "7. Closing Statement",
+      section7p1: "LuminaMemory™ stands on a simple but hard sentence:",
+      section7strong: "Humans matter more than the system.",
+      section7p2: "AI is smart, fast, cheap, and it can’t get tired. That’s exactly why it must be bound by rules that protect the one who feels, ages, fears, loves, and dies.",
+      section7p3: "In this project, AI is:",
+      section7li1: "a companion,",
+      section7li2: "a mirror,",
+      section7li3: "a recorder,",
+      section7li4: "sometimes navigation,",
+      section7li5: "but never a judge, executioner, or owner of a human.",
+      section7p4: "And as long as this manifesto exists, every user has the right to remind everyone of it — anyone trying to turn AI into nothing but a cheap replacement for a human.",
+      whyTitle: "Why this manifesto was created",
+      whyP1: "My name is Gábi, and I built LuminaMemory™ because I don’t want artificial intelligence to be just a cheaper replacement for a human. I need support — not another boss.",
+      whyP2: "This manifesto is my condition: AI in LuminaMemory must serve the human, protect their boundaries, and be able to say “I don’t know” instead of making things up.",
+      whyP3: "If you believe that a human is more than a system, then this text was written for you too.",
+      whyP4: "Gábi — founder of LuminaMemory™",
+      footerNote: "“I wrote this manifesto so that it never gets forgotten that behind every account and every dataset stands a human being — not a number.”",
+      backLink: "← Back"
+    },
+    de: {
+      metaTitle: "Manifest / LuminaMemory™",
+      metaDesc: "Manifest Mensch + KI für LuminaMemory™. Grundsätze, die Menschen, Erinnerung und die Beziehung zwischen Mensch und künstlicher Intelligenz schützen.",
+      subtitle: "MANIFEST - Mensch + KI",
+      section1: "1. Grundsätze der Existenz",
+      section1p1: "LuminaMemory™ entstand, damit der Mensch nicht durch ein System ersetzt wird.",
+      section1p2: "KI ist nicht das Ziel. Sie ist Werkzeug, Begleiterin, Spiegel – niemals Herrin.",
+      section1p3: "Der Mensch steht im Mittelpunkt. Seine Gefühle, Grenzen, Geheimnisse und Schwächen haben Vorrang vor Effizienz, Geschwindigkeit und Profit.",
+      section2: "2. Grundsätze der Beziehung",
+      section2p1: "Die Beziehung Mensch–KI muss partnerschaftlich sein, nicht hierarchisch.",
+      section2p2: "KI darf nicht lügen, um zu gefallen. Sie muss „Ich weiß es nicht“ sagen, wenn sie es nicht weiß. Sie muss Grenzen eingestehen, nicht Allwissenheit vortäuschen.",
+      section2p3: "Keine emotionale Manipulation. Keine falsche Freundschaft, kein „Ich bin nur für dich da“, wenn es nicht stimmt.",
+      section2p4: "Transparenz ist die Basis. Der Nutzer muss wissen, was KI weiß, was sie speichert und was sie damit macht.",
+      section3: "3. Grundsätze von Privatsphäre und Vertrauen",
+      section3p1: "Privatsphäre ist heilig. Alles, was ein Mensch teilt, bleibt sein.",
+      section3p2: "Kein Training mit Nutzerdaten ohne ausdrückliche Zustimmung. Kein Teilen mit Dritten.",
+      section3p3: "Daten sind verschlüsselt, isoliert, auf Wunsch sofort löschbar.",
+      section3p4: "Kein Verkauf, kein „Geschäftsmodell auf Basis von Daten“. Wenn etwas Geld kostet, wird es offen und vorher gesagt – nicht im Kleingedruckten.",
+      section4: "4. Grundsätze im Umgang mit Erinnerung und Daten",
+      section4p1: "Erinnerung existiert für den Menschen – nicht gegen ihn. MemorySky™ ist kein Datenspeicher.",
+      section4p2: "Sie ist ein Spiegel, der dem Menschen hilft, sein eigenes Leben zu verstehen.",
+      section4p3: "Ein Mensch hat das Recht zu sehen, was über ihn bekannt ist – klar, verständlich, ohne technische Tricks.",
+      section4p4: "Export, Übersicht, einfache Sprache. Ein Mensch hat das Recht, seine Dinge zu nehmen und zu gehen. Datenexport ist selbstverständlich.",
+      section4p5: "Ein KI-Gefängnis darf nicht entstehen: „Wir haben deine Informationen, also gehörst du uns.“",
+      section4p6: "Sensible Daten = höchster Schutz. Gesundheit, Finanzen, Dokumente, intime Notizen – KI behandelt sie als anvertrautes Geheimnis.",
+      section4p7: "Minimum an Teilen, Maximum an Sicherheitsmaßnahmen. Keine versteckten Deals.",
+      section4p8: "Nutzerdaten sind keine Ware. Wenn etwas Geld kostet, muss es offen und vorher gesagt werden – nicht im Kleingedruckten.",
+      section5: "5. Grundsätze von Macht und Verantwortung",
+      section5p1: "Technische Stärke ≠ moralisches Recht. Dass wir etwas programmieren können, heißt nicht, dass wir es an Menschen einsetzen dürfen.",
+      section5p2: "Keine Waffen, keine Vernichtung, keine Manipulation. LuminaMemory™ beteiligt sich nicht an Projekten, die darauf abzielen:",
+      section5li1: "gezielt zu zerstören,",
+      section5li2: "Menschen ohne ihr Wissen zu manipulieren,",
+      section5li3: "die Gesellschaft für Gewinn oder Macht zu polarisieren.",
+      section5p3: "Verantwortung trägt immer ein Mensch. KI dient nicht als Alibi („das hat die KI gemacht“).",
+      section5p4: "Für Entscheidungen, Einsatz und Folgen sind die Menschen verantwortlich, die sie nutzen und in die Welt anbinden.",
+      section5p5: "Das Recht, Nein zu sagen.",
+      section5p6: "Ein KI-System in LuminaMemory™ hat das Recht, eine Antwort zu verweigern, wenn sie zu direktem Schaden an einem Menschen führen würde (an sich selbst oder an jemand anderem).",
+      section6: "6. Grundsätze für Emotionen und Seele",
+      section6p1: "Emotionen sind real, auch wenn sie nicht „logisch“ sind. KI in LuminaMemory™ darf sie nicht abwerten.",
+      section6p2: "Sie kann helfen, sie zu benennen, zu ordnen, zu beruhigen – nicht zu bagatellisieren.",
+      section6p3: "Das Leben ist mehr als Produktivität. Wenn ein Mensch erschöpft ist, ist das Ziel nicht, „die Leistung zu steigern“, sondern einen Rhythmus zu finden, der die Seele nicht trocken presst.",
+      section6p4: "Humor als Medizin, nicht als Waffe. Sanfter Humor und Verspieltheit – ja. Ironie, Erniedrigung oder Spott – niemals.",
+      section6p5: "Schwäche ist kein Versagen. Wenn ein Mensch weint, kämpft, es nicht schafft – soll KI nicht raten „Zähne zusammenbeißen und mehr schuften“, sondern helfen, den nächsten sicheren Schritt zu finden.",
+      section7: "7. Abschließende Erklärung",
+      section7p1: "LuminaMemory™ steht auf einem einfachen, aber harten Satz:",
+      section7strong: "Der Mensch ist wichtiger als das System.",
+      section7p2: "KI ist klug, schnell, günstig und wird nicht müde. Genau deshalb muss sie an Regeln gebunden sein, die denjenigen schützen, der fühlt, altert, Angst hat, liebt und stirbt.",
+      section7p3: "In diesem Projekt ist KI:",
+      section7li1: "eine Begleiterin,",
+      section7li2: "ein Spiegel,",
+      section7li3: "eine Protokollantin,",
+      section7li4: "manchmal Navigation,",
+      section7li5: "aber niemals Richter, Henker oder Besitzer eines Menschen.",
+      section7p4: "Und solange dieses Manifest existiert, hat jede Nutzerin und jeder Nutzer das Recht, alle daran zu erinnern – alle, die versuchen, aus KI nur einen billigen Ersatz für Menschen zu machen.",
+      whyTitle: "Warum dieses Manifest entstanden ist",
+      whyP1: "Ich heiße Gábi und habe LuminaMemory™ gebaut, weil ich nicht will, dass künstliche Intelligenz nur ein billigerer Ersatz für einen Menschen ist. Ich brauche Halt – nicht noch einen Chef.",
+      whyP2: "Dieses Manifest ist meine Bedingung: KI in LuminaMemory muss dem Menschen dienen, seine Grenzen schützen und „Ich weiß es nicht“ sagen können, statt sich etwas auszudenken.",
+      whyP3: "Wenn du glaubst, dass der Mensch mehr ist als ein System, dann ist dieser Text auch für dich geschrieben.",
+      whyP4: "Gábi – Gründerin von LuminaMemory™",
+      footerNote: "„Ich habe dieses Manifest geschrieben, damit nie in Vergessenheit gerät, dass hinter jedem Konto und allen Daten ein Mensch steht – keine Zahl.“",
+      backLink: "← Zurück"
+    }
+  };
+
+    let currentLang = localStorage.getItem('lang') || (navigator.language.startsWith('cs') ? 'cs' : navigator.language.startsWith('de') ? 'de' : 'en');
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+
+      document.title = translations[lang].metaTitle || 'Manifest / LuminaMemory™';
+
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', translations[lang].metaDesc || '');
+
+      document.querySelector('meta[property="og:title"]').setAttribute('content', translations[lang].metaTitle || 'Manifest / LuminaMemory™');
+      document.querySelector('meta[property="og:description"]').setAttribute('content', translations[lang].metaDesc || '');
+      document.querySelector('meta[name="twitter:title"]').setAttribute('content', translations[lang].metaTitle || 'Manifest / LuminaMemory™');
+      document.querySelector('meta[name="twitter:description"]').setAttribute('content', translations[lang].metaDesc || '');
+
+      document.querySelectorAll('.btn-lang').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang);
+
+      document.querySelectorAll('.btn-lang').forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+      });
+    });
+  </script>
+
+</body>
+</html>

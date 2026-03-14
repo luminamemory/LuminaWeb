@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="metaTitle">Podpora / LuminaMemory™</title>
+  <meta name="description" data-i18n="metaDesc" content="Platební brána LuminaMemory™. Dobrovolná podpora přes PayPal, koupě e-knihy Holka s kocourem." />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="cs" href="https://luminamemory.ai/support.html" />
+  <link rel="alternate" hreflang="en" href="https://luminamemory.ai/support.html" />
+  <link rel="alternate" hreflang="de" href="https://luminamemory.ai/support.html" />
+  <link rel="alternate" hreflang="x-default" href="https://luminamemory.ai/support.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luminamemory.ai/support.html" />
+  <meta property="og:title" data-i18n="metaTitle" content="Podpora / LuminaMemory™" />
+  <meta property="og:site_name" content="LuminaMemory™" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:description" data-i18n="metaDesc" content="Platební brána LuminaMemory™. Dobrovolná podpora přes PayPal, koupě e-knihy Holka s kocourem." />
+  <meta property="og:image" content="https://luminamemory.ai/og-luminamemory.jpg" />
+  <meta property="og:image:type" content="image/jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://luminamemory.ai/support.html" />
+  <meta name="twitter:title" data-i18n="metaTitle" content="Podpora / LuminaMemory™" />
+  <meta name="twitter:description" data-i18n="metaDesc" content="Platební brána LuminaMemory™. Dobrovolná podpora přes PayPal, koupě e-knihy Holka s kocourem." />
+  <meta name="twitter:image" content="https://luminamemory.ai/og-luminamemory.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://luminamemory.ai/support.html" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050015;
+      --text: #f0efff;
+      --muted: #d0c8ff;
+      --neon-blue: #2ad3ff;
+      --neon-purple: #c084fc;
+      --neon-purple-glow: #d7aaff;
+      --glass: rgba(30, 20, 60, 0.18);
+      --stroke: rgba(192, 132, 252, 0.35);
+      --shadow: 0 20px 60px rgba(0,0,0,0.7);
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+
+      /* On devices with a notch (e.g. iPhone), add safe-area paddings to keep content centered.
+         Include top and bottom insets so content doesn't get hidden behind status bars or home indicators. */
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    /* Prevent horizontal scrolling and keep layout centered on mobile */
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .lang-switch {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .btn-lang {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-lang:hover, .btn-lang.active {
+      color: white;
+      border-color: var(--neon-purple);
+      box-shadow: 0 0 16px rgba(192,132,252,0.5);
+    }
+
+    main {
+      max-width: 960px;
+      margin: 80px auto 60px;
+      padding: 0 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    h1 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 100;
+      font-size: clamp(3.2rem, 10vw, 6.5rem);
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      line-height: 1.1;
+      display: inline-flex;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      justify-content: center;
+      max-width: 100%;
+      padding: 20px 40px;
+      background: var(--glass);
+      border-radius: 24px;
+      border: 2px solid var(--stroke);
+    }
+
+    .lumina-part {
+      color: var(--neon-purple);
+      text-shadow: 0 0 4px var(--neon-purple);
+      -webkit-text-stroke: 0.5px rgba(255,255,255,0.4);
+    }
+
+    .memory-part {
+      color: var(--neon-blue);
+      text-shadow: 0 0 4px var(--neon-blue);
+      -webkit-text-stroke: 0.5px rgba(255,255,255,0.4);
+    }
+
+    .tm-part {
+      color: #ffffff;
+      font-size: 0.48em;
+      vertical-align: super;
+      opacity: 0.9;
+      text-shadow: none;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: var(--muted);
+    }
+
+    .section {
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: var(--neon-purple);
+      margin-bottom: 24px;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+
+    .highlight {
+      background: rgba(192,132,252,0.12);
+      border-left: 4px solid var(--neon-purple);
+      padding: 16px 20px;
+      margin: 24px 0;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    .benefits {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .benefits li {
+      font-size: 1.05rem;
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .benefits li::before {
+      content: "✦";
+      color: var(--neon-purple);
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+    }
+
+    .options {
+      display: grid;
+      gap: 24px;
+    }
+
+    .option {
+      background: rgba(192,132,252,0.08);
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s;
+    }
+
+    .option:hover {
+      background: rgba(192,132,252,0.15);
+      box-shadow: 0 0 32px rgba(192,132,252,0.3);
+    }
+
+    .option.disabled {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .option-main {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--neon-purple);
+    }
+
+    .option-sub {
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-top: 16px;
+    }
+
+    .pill.active {
+      background: rgba(192,132,252,0.25);
+      color: white;
+      border: 1px solid var(--neon-purple);
+    }
+
+    .pill.soon {
+      background: rgba(45,211,255,0.15);
+      color: var(--neon-blue);
+      border: 1px solid var(--neon-blue);
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 0 32px rgba(192,132,252,0.6);
+      margin: 0 auto 24px;
+    }
+
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .message {
+      background: rgba(192,132,252,0.08);
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .eyebrow {
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .legal {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 32px;
+      padding: 20px;
+      background: rgba(255,45,85,0.08);
+      border: 1px solid rgba(255,45,85,0.3);
+      border-radius: 12px;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      text-decoration: none;
+      z-index: 200;
+    }
+
+    .back-link:hover {
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+    .section { padding: 32px 24px; }
+
+    h1 {
+      font-size: clamp(2.4rem, 9vw, 4rem);
+      padding: 16px 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="index.html" class="back-link" data-i18n="backLink">← Zpět</a>
+  <div class="lang-switch">
+    <button class="btn-lang active" data-lang="cs">CZ</button>
+    <button class="btn-lang" data-lang="en">EN</button>
+    <button class="btn-lang" data-lang="de">DE</button>
+  </div>
+
+  <main>
+
+    <header>
+      <h1>
+      <span class="lumina-part">Lumina</span><span class="memory-part">Memory</span><span class="tm-part">™</span>
+      </h1>
+      <div class="subtitle" data-i18n="subtitle">Brána podpory a e-knihy</div>
+    </header>
+
+    <div class="section">
+      <p class="intro" data-i18n="intro">
+        Tady můžeš podpořit projekt LuminaMemory™ – dobrovolnou částkou nebo koupí e-knihy Holka s kocourem. Vše probíhá přes PayPal. Je to první, jemná verze – bez předplatného, bez závazků.
+      </p>
+
+      <div class="highlight" data-i18n="highlight">PayPal aktivní • dobrovolná podpora & e-kniha</div>
+
+      <ul class="benefits">
+        <li data-i18n="benefit1">pomáháš financovat první verzi aplikace LuminaMemory™</li>
+        <li data-i18n="benefit2">podporuješ vývoj klidné, lidské AI – bez reklam a bez prodeje dat</li>
+        <li data-i18n="benefit3">dáváš signál, že má smysl budovat hlubší nástroje pro paměť a rituály</li>
+      </ul>
+
+      <div class="options">
+        <a href="https://paypal.me/LuminaMemory" target="_blank" rel="noopener" class="option">
+          <div class="option-main" data-i18n="voluntaryMain">Dobrovolná podpora</div>
+          <div class="option-sub" data-i18n="voluntarySub">Jednorázová částka podle tebe. Pomáhá na provoz, ilustrace a vývoj.</div>
+          <div class="pill active">Aktivní</div>
+        </a>
+
+        <a href="https://paypal.me/LuminaMemory/6.9" target="_blank" rel="noopener" class="option">
+          <div class="option-main" data-i18n="ebookMain">E-kniha „Holka s kocourem“</div>
+          <div class="option-sub" data-i18n="ebookSub">Cena 6,90 €. Podpora z prodeje jde na další vývoj. Pokyny najdeš níže.</div>
+          <div class="pill active">Aktivní</div>
+        </a>
+
+        <div class="option disabled">
+          <div class="option-main" data-i18n="bankMain">Bankovní převod</div>
+          <div class="option-sub" data-i18n="bankSub">Připravujeme transparentní možnosti – brzy doplníme.</div>
+          <div class="pill soon">Brzy</div>
+        </div>
+
+        <div class="option disabled">
+          <div class="option-main" data-i18n="subMain">Předplatné & krypto</div>
+          <div class="option-sub" data-i18n="subSub">Plánujeme tarify Free / Plus / Premium – zatím v přípravě.</div>
+          <div class="pill soon">Později</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="text-align:center;">
+      <div class="avatar">
+        <img src="gabi-portrait.jpg" alt="Gabriela Zakova – Founder LuminaMemory™" loading="lazy">
+      </div>
+
+      <div class="message">
+        <span class="eyebrow" data-i18n="messageEyebrow">Zpráva od Gábi</span>
+        <p data-i18n="message1">První světelná brána je otevřená – přes PayPal (@LuminaMemory).</p>
+        <p data-i18n="message2">Děkuju za každou podporu. Pomáhá mi držet rytmus mezi realitou a budováním Paláce.</p>
+        <p data-i18n="message3">Příjmy řeším podle německých pravidel jako podporu projektu a prodej digitálních produktů.</p>
+      </div>
+
+      <div class="legal">
+        <strong data-i18n="legalImportant">‼️ DŮLEŽITÉ</strong><br>
+        <span data-i18n="legalNote">Prosím přidej do PayPalu zprávu pro příjemce:</span><br>
+        <em data-i18n="legalDetail">Tvůj e-mail + jazyk, ve kterém chceš dostat potvrzení / e-knihu (CZ / EN / DE).</em><br><br>
+        <span data-i18n="legalPaypal">💡 PayPal neposílá kontaktní údaje – bez této zprávy ti nemohu poslat poděkování, odkaz ani klíč k e-knize.</span>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    const translations = {
+      cs: {
+        metaTitle: "Podpora / LuminaMemory™",
+        metaDesc: "Platební brána LuminaMemory™. Dobrovolná podpora přes PayPal, koupě e-knihy Holka s kocourem.",
+        subtitle: "Brána podpory a e-knihy",
+        intro: "Tady můžeš podpořit projekt LuminaMemory™ – dobrovolnou částkou nebo koupí e-knihy Holka s kocourem. Vše probíhá přes PayPal. Je to první, jemná verze – bez předplatného, bez závazků.",
+        highlight: "PayPal aktivní • dobrovolná podpora & e-kniha",
+        benefit1: "pomáháš financovat první verzi aplikace LuminaMemory™",
+        benefit2: "podporuješ vývoj klidné, lidské AI – bez reklam a bez prodeje dat",
+        benefit3: "dáváš signál, že má smysl budovat hlubší nástroje pro paměť a rituály",
+        voluntaryMain: "Dobrovolná podpora",
+        voluntarySub: "Jednorázová částka podle tebe. Pomáhá na provoz, ilustrace a vývoj.",
+        ebookMain: "E-kniha „Holka s kocourem“",
+        ebookSub: "Cena 6,90 €. Podpora z prodeje jde na další vývoj. Pokyny najdeš níže.",
+        bankMain: "Bankovní převod",
+        bankSub: "Připravujeme transparentní možnosti – brzy doplníme.",
+        subMain: "Předplatné & krypto",
+        subSub: "Plánujeme tarify Free / Plus / Premium – zatím v přípravě.",
+        messageEyebrow: "Zpráva od Gábi",
+        message1: "První světelná brána je otevřená – přes PayPal (@LuminaMemory).",
+        message2: "Děkuju za každou podporu. Pomáhá mi držet rytmus mezi realitou a budováním Paláce.",
+        message3: "Příjmy řeším podle německých pravidel jako podporu projektu a prodej digitálních produktů.",
+        legalImportant: "‼️ DŮLEŽITÉ",
+        legalNote: "Prosím přidej do PayPalu zprávu pro příjemce:",
+        legalDetail: "Tvůj e-mail + jazyk, ve kterém chceš dostat potvrzení / e-knihu (CZ / EN / DE).",
+        legalPaypal: "💡 PayPal neposílá kontaktní údaje – bez této zprávy ti nemohu poslat poděkování, odkaz ani klíč k e-knize.",
+        backLink: "← Zpět"
+      },
+      en: {
+        metaTitle: "Support / LuminaMemory™",
+        metaDesc: "LuminaMemory™ payment gateway. Voluntary support via PayPal, purchase of the e-book Girl with a Cat.",
+        subtitle: "Support & e-book gateway",
+        intro: "Here you can support LuminaMemory™ – with a voluntary donation or by purchasing the e-book Girl with a Cat. Everything runs via PayPal. This is the first gentle version – no subscriptions, no commitments.",
+        highlight: "PayPal active • voluntary support & e-book",
+        benefit1: "you help finance the first version of the LuminaMemory™ app",
+        benefit2: "you support the development of calm, human AI – no ads, no data selling",
+        benefit3: "you signal that it makes sense to build deeper tools for memory and rituals",
+        voluntaryMain: "Voluntary support",
+        voluntarySub: "One-time amount of your choice. Helps with hosting, illustrations and new tools.",
+        ebookMain: "E-book “Girl with a Cat”",
+        ebookSub: "Price €6.90. Proceeds support further development. Details below.",
+        bankMain: "Bank transfer",
+        bankSub: "Preparing transparent options – coming soon.",
+        subMain: "Subscription & crypto",
+        subSub: "Planning Free / Plus / Premium tiers – currently in preparation.",
+        messageEyebrow: "Message from Gabi",
+        message1: "The first light gate is open – via PayPal (@LuminaMemory).",
+        message2: "Thank you for every support. It helps me keep the rhythm between reality and building the Palace.",
+        message3: "Revenue is handled according to German regulations as project support and digital product sales.",
+        legalImportant: "‼️ IMPORTANT",
+        legalNote: "Please add a note to recipient in PayPal:",
+        legalDetail: "Your email + language for confirmation / e-book (CZ / EN / DE).",
+        legalPaypal: "💡 PayPal does not share contact details – without this note I cannot send thanks, link or e-book key.",
+        backLink: "← Back"
+      },
+      de: {
+        metaTitle: "Unterstützung / LuminaMemory™",
+        metaDesc: "Zahlungsportal LuminaMemory™. Freiwillige Unterstützung über PayPal, Kauf des E-Buchs Mädchen mit Kater.",
+        subtitle: "Unterstützungs- und E-Book-Portal",
+        intro: "Hier kannst du LuminaMemory™ unterstützen – mit freiwilligem Beitrag oder Kauf des E-Buchs Mädchen mit Kater. Alles läuft über PayPal. Dies ist die erste sanfte Version – keine Abos, keine Verpflichtungen.",
+        highlight: "PayPal aktiv • freiwillige Unterstützung & E-Book",
+        benefit1: "du hilfst, die erste Version der LuminaMemory™-App zu finanzieren",
+        benefit2: "du unterstützt die Entwicklung ruhiger, menschlicher KI – ohne Werbung, ohne Datenverkauf",
+        benefit3: "du gibst das Signal, dass tiefere Werkzeuge für Erinnerung und Rituale Sinn machen",
+        voluntaryMain: "Freiwillige Unterstützung",
+        voluntarySub: "Einmaliger Betrag nach deiner Wahl. Hilft bei Hosting, Illustrationen und neuen Tools.",
+        ebookMain: "E-Book „Mädchen mit Kater“",
+        ebookSub: "Preis 6,90 €. Erlöse fließen in die Weiterentwicklung. Details unten.",
+        bankMain: "Banküberweisung",
+        bankSub: "Transparente Optionen in Vorbereitung – bald verfügbar.",
+        subMain: "Abonnement & Krypto",
+        subSub: "Planung Free / Plus / Premium – derzeit in Vorbereitung.",
+        messageEyebrow: "Nachricht von Gabi",
+        message1: "Das erste Lichttor ist offen – via PayPal (@LuminaMemory).",
+        message2: "Danke für jede Unterstützung. Sie hilft mir, den Rhythmus zwischen Realität und Palastbau zu halten.",
+        message3: "Einnahmen behandle ich nach deutschen Vorschriften als Projektunterstützung und Verkauf digitaler Produkte.",
+        legalImportant: "‼️ WICHTIG",
+        legalNote: "Bitte füge im PayPal eine Nachricht für den Empfänger hinzu:",
+        legalDetail: "Deine E-Mail + Sprache für Bestätigung / E-Book (CZ / EN / DE).",
+        legalPaypal: "💡 PayPal teilt keine Kontaktdaten – ohne diese Nachricht kann ich weder Danke, Link noch E-Book-Schlüssel senden.",
+        backLink: "← Zurück"
+      }
+    };
+
+    // --- Funkce pro načtení cookie ---
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 1️⃣ načti jazyk z cookie, pokud existuje
+  const cookieLang = getCookie('lang');
+  if (cookieLang && localStorage.getItem('lang') !== cookieLang) {
+    localStorage.setItem('lang', cookieLang);
+  }
+
+  // 2️⃣ použij localStorage nebo fallback na prohlížeč
+  let currentLang = localStorage.getItem('lang') ||
+                    (navigator.language.startsWith('cs') ? 'cs' :
+                     navigator.language.startsWith('de') ? 'de' : 'en');
+
+  // --- Funkce pro nastavení jazyka ---
+  function setLanguage(lang) {
+    currentLang = lang;
+
+    // synchronizace cookie a localStorage
+    localStorage.setItem('lang', lang);
+    document.cookie = `lang=${lang}; path=/; domain=.luminamemory.ai; max-age=31536000`;
+
+    document.documentElement.lang = lang;
+
+    // překlady
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (translations[lang][key]) el.textContent = translations[lang][key];
+    });
+
+    // meta tagy
+    document.title = translations[lang].metaTitle || 'Podpora / LuminaMemory™';
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', translations[lang].metaDesc || '');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', translations[lang].metaTitle || 'Podpora / LuminaMemory™');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', translations[lang].metaDesc || '');
+    document.querySelector('meta[name="twitter:title"]').setAttribute('content', translations[lang].metaTitle || 'Podpora / LuminaMemory™');
+    document.querySelector('meta[name="twitter:description"]').setAttribute('content', translations[lang].metaDesc || '');
+
+    // aktivní tlačítko jazyka
+    document.querySelectorAll('.btn-lang').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+  }
+
+  // 3️⃣ nastav jazyk při načtení
+  setLanguage(currentLang);
+
+  // 4️⃣ tlačítka pro přepínání jazyků
+  document.querySelectorAll('.btn-lang').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+});
+  </script>
+</body>
+</html>
